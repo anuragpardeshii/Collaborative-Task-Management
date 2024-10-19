@@ -7,7 +7,15 @@ export const SocketProvider = ({ children }) => {
     const socketRef = useRef();
 
     useEffect(() => {
-        socketRef.current = io(process.env.REACT_APP_API_URL);
+        const socketUrl = import.meta.env.VITE_API_URL; // Ensure you use the correct variable
+        
+        // Initialize the socket connection
+        socketRef.current = io(socketUrl);
+
+        // Optional: Log the connection
+        socketRef.current.on('connect', () => {
+            console.log('Socket connected:', socketRef.current.id);
+        });
 
         return () => {
             socketRef.current.disconnect();

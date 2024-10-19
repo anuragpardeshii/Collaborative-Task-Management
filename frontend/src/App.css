@@ -1,42 +1,59 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* App.css */
+
+/* Layout styles for the TaskBoard component */
+.task-board {
+  max-width: 800px; /* Maximum width for the task board */
+  margin: 20px auto; /* Center the task board */
+  padding: 20px;
+  background: white; /* White background for the board */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Task item styles */
+.task-item {
+  display: flex;
+  justify-content: space-between; /* Space between task title and actions */
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0; /* Divider between tasks */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.task-item:last-child {
+  border-bottom: none; /* Remove bottom border for last item */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.task-item h3 {
+  font-size: 1.2rem; /* Task title font size */
 }
 
-.card {
-  padding: 2em;
+.task-item p {
+  margin: 5px 0; /* Margin for description */
+  font-size: 0.9rem; /* Description font size */
 }
 
-.read-the-docs {
-  color: #888;
+/* Form styles */
+.task-form {
+  margin-bottom: 20px; /* Space below form */
+}
+
+.task-form input,
+.task-form textarea {
+  width: 100%; /* Full width */
+  padding: 10px; /* Padding for inputs */
+  margin: 5px 0; /* Space between inputs */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.task-form button {
+  padding: 10px 15px; /* Button padding */
+  background-color: #007bff; /* Bootstrap primary color */
+  color: white; /* Text color */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.task-form button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
 }

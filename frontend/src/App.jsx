@@ -6,6 +6,7 @@ import { SocketProvider } from './context/SocketContext';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import TaskBoard from './components/TaskBoard';
+import CreateProject from './pages/createProject';
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
           <Routes>
             <Route path="/" exact element={<Login />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/tasks" component={TaskBoard} />
+            <Route path="/signup" element={<Signup/>} />
+            <Route path="/tasks" element={<TaskBoard/>} />
+            <Route path="/create-project" element={<CreateProject/>} />
           </Routes>
         </Router>
       </SocketProvider>

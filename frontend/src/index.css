@@ -1,33 +1,22 @@
-/* index.css */
-
-/* Reset some default browser styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* client/src/index.css */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0; /* Light background for the application */
-  color: #333; /* Default text color */
-  line-height: 1.6; /* Improve readability */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
 }
 
-/* Center the application */
-#root {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+.dashboard {
+  padding: 20px;
 }
 
-/* Add some basic link styles */
-a {
-  color: #007bff; /* Bootstrap primary color */
-  text-decoration: none;
+.task-list {
+  margin-top: 20px;
 }
 
-a:hover {
-  text-decoration: underline;
+.task-item {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
 }

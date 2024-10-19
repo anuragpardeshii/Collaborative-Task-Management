@@ -1,28 +1,28 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { configureStore } from '@reduxjs/toolkit';
+// client/src/redux/reducers/TaskReducer.js
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
+// Fetch Tasks
+export const fetchTasks = createAsyncThunk('tasks/fetchTasks', async () => {
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/tasks`);
+    return response.data;
+});
 
 const taskSlice = createSlice({
-    name: 'task',
-    initialState: { tasks: [] },
+    name: 'tasks',
+    initialState: [],
     reducers: {
-        setTasks: (state, action) => {
-            state.tasks = action.payload;
-        },
         addTask: (state, action) => {
-            state.tasks.push(action.payload);
+            state.push(action.payload);
         },
-        updateTask: (state, action) => {
-            const index = state.tasks.findIndex((task) => task._id === action.payload._id);
-            if (index !== -1) {
-                state.tasks[index] = action.payload;
-            }
-        },
-        deleteTask: (state, action) => {
-            state.tasks = state.tasks.filter((task) => task._id !== action.payload);
-        },
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchTasks.fulfilled, (state, action) => {
+                return action.payload;
+            });
     },
 });
 
-export const { setTasks, addTask, updateTask, deleteTask } = taskSlice.actions;
+export const { addTask } = taskSlice.actions;
 export default taskSlice.reducer;

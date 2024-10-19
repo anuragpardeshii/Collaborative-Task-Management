@@ -1,3 +1,4 @@
+// client/src/components/TaskForm.jsx
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTask } from '../redux/reducers/TaskReducer';
@@ -9,9 +10,13 @@ const TaskForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await axios.post('/api/tasks', task);
-        dispatch(addTask(response.data));
-        setTask({ title: '', description: '' });
+        try {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/tasks`, task);
+            dispatch(addTask(response.data));
+            setTask({ title: '', description: '' });
+        } catch (error) {
+            console.error('Error adding task:', error);
+        }
     };
 
     return (
